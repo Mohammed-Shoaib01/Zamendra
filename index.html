@@ -9,50 +9,47 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --green-deep:   #1a3a2a;
-    --green-mid:    #2d6a4f;
-    --green-fresh:  #52b788;
-    --green-light:  #b7e4c7;
-    --earth:        #a47148;
-    --earth-light:  #ddb892;
-    --cream:        #f8f4ee;
-    --cream-dark:   #ede8df;
-    --text-dark:    #1a2e1e;
-    --text-mid:     #4a6741;
+    --green-deep:  #1a3a2a;
+    --green-mid:   #2d6a4f;
+    --green-fresh: #52b788;
+    --green-light: #b7e4c7;
+    --earth:       #a47148;
+    --cream:       #f8f4ee;
+    --cream-dark:  #ede8df;
+    --text-dark:   #1a2e1e;
+    --text-mid:    #4a6741;
   }
 
   html, body {
-    height: 100%;
+    min-height: 100%;
     font-family: 'DM Sans', sans-serif;
     background: var(--cream);
     color: var(--text-dark);
     overflow-x: hidden;
   }
 
-  /* ── background texture ── */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(82,183,136,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 10% 0%,  rgba(82,183,136,0.18) 0%, transparent 60%),
       radial-gradient(ellipse 60% 50% at 90% 100%, rgba(164,113,72,0.14) 0%, transparent 55%),
-      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(183,228,199,0.12) 0%, transparent 70%);
+      radial-gradient(ellipse 40% 40% at 50% 50%,  rgba(183,228,199,0.12) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
   }
 
-  /* ── leaf decoration ── */
   .leaf {
     position: fixed;
     pointer-events: none;
     z-index: 0;
     opacity: 0.07;
   }
-  .leaf-1 { top: -60px; right: -40px; width: 340px; transform: rotate(20deg); }
-  .leaf-2 { bottom: -80px; left: -60px; width: 400px; transform: rotate(200deg); }
+  .leaf-1 { top: -60px; right: -40px; width: 260px; transform: rotate(20deg); }
+  .leaf-2 { bottom: -80px; left: -60px; width: 300px; transform: rotate(200deg); }
 
-  /* ── wrapper ── */
+  /* ── page layout ── */
   .page {
     position: relative;
     z-index: 1;
@@ -61,137 +58,137 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 3rem 1.5rem;
-    gap: 0;
+    text-align: center;
+    padding: 4rem 1.25rem 5rem;
   }
 
-  /* ── logo mark ── */
+  /* ── logo ── */
   .logo-mark {
-    width: 64px;
-    height: 64px;
+    width: 58px;
+    height: 58px;
     background: var(--green-mid);
-    border-radius: 18px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     animation: fadeDown 0.8s ease both;
-    box-shadow: 0 8px 32px rgba(45,106,79,0.22);
+    box-shadow: 0 8px 28px rgba(45,106,79,0.22);
+    flex-shrink: 0;
   }
-  .logo-mark svg { width: 34px; height: 34px; }
+  .logo-mark svg { width: 30px; height: 30px; }
 
-  /* ── tag line ── */
+  /* ── pill ── */
   .tag {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--green-fresh);
     background: rgba(82,183,136,0.12);
     border: 1px solid rgba(82,183,136,0.3);
     border-radius: 100px;
-    padding: 5px 16px;
-    margin-bottom: 1.4rem;
+    padding: 5px 14px;
+    margin-bottom: 1.2rem;
     animation: fadeDown 0.9s 0.1s ease both;
   }
 
   /* ── headline ── */
   h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.6rem, 7vw, 5.2rem);
+    font-size: clamp(1.9rem, 8vw, 5rem);
     font-weight: 900;
-    line-height: 1.08;
-    text-align: center;
+    line-height: 1.1;
     color: var(--green-deep);
-    max-width: 760px;
-    margin-bottom: 0.5rem;
+    max-width: 700px;
+    margin-bottom: 0.75rem;
     animation: fadeDown 1s 0.2s ease both;
+    word-break: break-word;
   }
-  h1 span.accent {
-    color: var(--green-fresh);
-    font-style: italic;
-  }
-  h1 .dots {
-    color: var(--earth);
-  }
+  h1 .accent { color: var(--green-fresh); font-style: italic; }
+  h1 .dots   { color: var(--earth); }
 
   /* ── sub ── */
   .sub {
-    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    font-size: clamp(0.88rem, 2.4vw, 1.1rem);
     font-weight: 300;
     color: var(--text-mid);
-    text-align: center;
-    max-width: 520px;
-    line-height: 1.7;
-    margin-bottom: 2.8rem;
+    max-width: 480px;
+    line-height: 1.75;
+    margin-bottom: 2.2rem;
+    padding: 0 0.25rem;
     animation: fadeDown 1s 0.3s ease both;
   }
 
   /* ── countdown ── */
   .countdown-wrap {
+    margin-bottom: 2.2rem;
     animation: fadeDown 1s 0.4s ease both;
-    margin-bottom: 2.8rem;
+    width: 100%;
+    max-width: 440px;
   }
   .countdown-label {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--earth);
-    text-align: center;
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.8rem;
   }
   .countdown {
     display: flex;
-    gap: 12px;
+    gap: clamp(5px, 2vw, 12px);
     align-items: center;
     justify-content: center;
   }
   .cd-block {
     background: var(--green-deep);
-    border-radius: 14px;
-    padding: 16px 22px 14px;
-    min-width: 80px;
+    border-radius: 12px;
+    padding: clamp(10px, 2.5vw, 16px) clamp(10px, 3vw, 20px);
+    flex: 1;
+    min-width: 0;
+    max-width: 96px;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(26,58,42,0.18);
+    box-shadow: 0 4px 18px rgba(26,58,42,0.18);
   }
   .cd-num {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: clamp(1.4rem, 5.5vw, 2.4rem);
     font-weight: 700;
     color: var(--green-light);
     line-height: 1;
     display: block;
   }
   .cd-unit {
-    font-size: 10px;
+    font-size: clamp(7px, 1.8vw, 10px);
     font-weight: 500;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--green-fresh);
-    margin-top: 5px;
+    margin-top: 4px;
     display: block;
   }
   .cd-sep {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: clamp(1.1rem, 4vw, 2rem);
     font-weight: 700;
     color: var(--green-mid);
-    line-height: 1;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
   }
 
-  /* ── social links ── */
+  /* ── socials ── */
   .social-wrap {
     animation: fadeDown 1s 0.5s ease both;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.65rem;
+    width: 100%;
+    max-width: 480px;
   }
   .social-label {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -199,91 +196,158 @@
   }
   .socials {
     display: flex;
-    gap: 14px;
+    gap: 8px;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
   }
   .social-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 7px;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 9px 15px;
     border-radius: 100px;
     border: 1.5px solid var(--cream-dark);
-    background: rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.75);
     color: var(--green-deep);
-    font-size: 13px;
+    font-size: clamp(11px, 2.4vw, 13px);
     font-weight: 500;
     transition: all 0.2s ease;
     backdrop-filter: blur(6px);
+    white-space: nowrap;
   }
-  .social-btn:hover {
+  .social-btn:hover,
+  .social-btn:focus {
     border-color: var(--green-fresh);
     background: rgba(82,183,136,0.1);
     color: var(--green-mid);
     transform: translateY(-2px);
     box-shadow: 0 4px 14px rgba(82,183,136,0.2);
+    outline: none;
   }
-  .social-btn svg {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-  }
+  .social-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
 
   /* ── footer ── */
   .footer {
     position: fixed;
-    bottom: 1.2rem;
+    bottom: 0;
     left: 0; right: 0;
+    padding: 0.8rem 1rem;
     text-align: center;
     font-size: 11px;
     color: rgba(74,103,65,0.5);
     letter-spacing: 0.06em;
+    background: linear-gradient(to top, rgba(248,244,238,0.95) 60%, transparent);
   }
 
-  /* ── animations ── */
   @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-18px); }
+    from { opacity: 0; transform: translateY(-16px); }
     to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ════════════════════════════
+     RESPONSIVE BREAKPOINTS
+  ════════════════════════════ */
+
+  /* Small phones — < 380px */
+  @media (max-width: 379px) {
+    .leaf { display: none; }
+    .page { padding: 3rem 1rem 4.5rem; }
+    .logo-mark { width: 50px; height: 50px; }
+    .tag { font-size: 9px; letter-spacing: 0.12em; }
+    h1 { font-size: 1.75rem; }
+    .cd-sep { display: none; }
+    .socials { flex-direction: column; align-items: stretch; }
+    .social-btn { justify-content: center; padding: 10px 14px; }
+  }
+
+  /* Regular phones — 380px to 599px */
+  @media (min-width: 380px) and (max-width: 599px) {
+    .leaf-1 { width: 200px; }
+    .leaf-2 { width: 240px; }
+    .socials { flex-wrap: wrap; }
+  }
+
+  /* Tablets — 600px to 899px */
+  @media (min-width: 600px) {
+    .leaf-1 { width: 300px; }
+    .leaf-2 { width: 360px; }
+    .page { padding: 4rem 2.5rem 5rem; }
+    .logo-mark { width: 64px; height: 64px; border-radius: 18px; }
+    .logo-mark svg { width: 34px; height: 34px; }
+    .tag { font-size: 11px; }
+    .socials { flex-wrap: nowrap; }
+  }
+
+  /* Large tablets & small desktops — 900px to 1199px */
+  @media (min-width: 900px) {
+    .leaf-1 { width: 380px; }
+    .leaf-2 { width: 440px; }
+    .page { padding: 5rem 3rem 5rem; }
+  }
+
+  /* Large desktops — 1200px+ */
+  @media (min-width: 1200px) {
+    .leaf-1 { width: 460px; }
+    .leaf-2 { width: 520px; }
+  }
+
+  /* Landscape phones */
+  @media (max-height: 520px) and (orientation: landscape) {
+    .page {
+      min-height: auto;
+      padding: 1.5rem 2rem 3rem;
+      justify-content: flex-start;
+    }
+    .logo-mark { width: 44px; height: 44px; margin-bottom: 0.7rem; }
+    .logo-mark svg { width: 22px; height: 22px; }
+    .tag { margin-bottom: 0.6rem; font-size: 9px; }
+    h1 { font-size: clamp(1.4rem, 5vw, 2.2rem); margin-bottom: 0.4rem; }
+    .sub { margin-bottom: 1rem; font-size: 0.85rem; }
+    .countdown-wrap { margin-bottom: 1rem; }
+    .cd-block { padding: 7px 12px; }
+    .leaf { display: none; }
+  }
+
+  /* Touch devices — remove hover transform to avoid stuck states */
+  @media (hover: none) {
+    .social-btn:hover { transform: none; }
   }
 </style>
 </head>
 <body>
 
-<!-- leaf SVG decorations -->
 <svg class="leaf leaf-1" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M150 20 C220 40, 280 120, 260 200 C240 280, 140 290, 80 240 C20 190, 10 80, 80 40 C110 22, 130 15, 150 20Z" fill="#2d6a4f"/>
+  <path d="M150 20 C220 40,280 120,260 200 C240 280,140 290,80 240 C20 190,10 80,80 40 C110 22,130 15,150 20Z" fill="#2d6a4f"/>
   <path d="M150 20 L200 180" stroke="#1a3a2a" stroke-width="4"/>
-  <path d="M200 180 C170 160, 140 140, 100 100" stroke="#1a3a2a" stroke-width="2"/>
-  <path d="M200 180 C175 165, 195 140, 210 120" stroke="#1a3a2a" stroke-width="2"/>
+  <path d="M200 180 C170 160,140 140,100 100" stroke="#1a3a2a" stroke-width="2"/>
+  <path d="M200 180 C175 165,195 140,210 120" stroke="#1a3a2a" stroke-width="2"/>
 </svg>
 <svg class="leaf leaf-2" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M150 20 C220 40, 280 120, 260 200 C240 280, 140 290, 80 240 C20 190, 10 80, 80 40 C110 22, 130 15, 150 20Z" fill="#a47148"/>
+  <path d="M150 20 C220 40,280 120,260 200 C240 280,140 290,80 240 C20 190,10 80,80 40 C110 22,130 15,150 20Z" fill="#a47148"/>
   <path d="M150 20 L200 180" stroke="#7a5230" stroke-width="4"/>
 </svg>
 
 <div class="page">
 
-  <!-- logo mark -->
   <div class="logo-mark">
     <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17 4 C17 4, 8 10, 8 18 C8 24, 12 28, 17 28 C22 28, 26 24, 26 18 C26 10, 17 4, 17 4Z" fill="#b7e4c7"/>
+      <path d="M17 4 C17 4,8 10,8 18 C8 24,12 28,17 28 C22 28,26 24,26 18 C26 10,17 4,17 4Z" fill="#b7e4c7"/>
       <path d="M17 4 L17 28" stroke="#52b788" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M17 14 C14 12, 10 13, 9 16" stroke="#52b788" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M17 18 C20 16, 24 17, 25 20" stroke="#52b788" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M17 14 C14 12,10 13,9 16" stroke="#52b788" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M17 18 C20 16,24 17,25 20" stroke="#52b788" stroke-width="1.5" stroke-linecap="round"/>
     </svg>
   </div>
 
-  <!-- category tag -->
   <div class="tag">Online Farmers Marketplace</div>
 
-  <!-- headline -->
   <h1>Zamendra is <span class="accent">growing</span><br>stay tuned<span class="dots">.....</span></h1>
 
-  <!-- subtext -->
   <p class="sub">Fresh produce, straight from farm to your door. We're building something special — connecting local farmers with families who care about where their food comes from.</p>
 
-  <!-- countdown -->
   <div class="countdown-wrap">
     <p class="countdown-label">Launching in</p>
     <div class="countdown">
@@ -297,12 +361,11 @@
     </div>
   </div>
 
-  <!-- social links -->
   <div class="social-wrap">
     <p class="social-label">Follow our journey</p>
     <div class="socials">
 
-      <a href="https://instagram.com/zamendra" target="_blank" class="social-btn">
+      <a href="https://instagram.com/zamendra" target="_blank" rel="noopener" class="social-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
           <circle cx="12" cy="12" r="4"/>
@@ -311,7 +374,7 @@
         @zamendra
       </a>
 
-      <a href="https://facebook.com/zamendra" target="_blank" class="social-btn">
+      <a href="https://facebook.com/zamendra" target="_blank" rel="noopener" class="social-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
         </svg>
@@ -334,32 +397,22 @@
 <div class="footer">© 2026 Zamendra. All rights reserved.</div>
 
 <script>
-  // Launch date: 30 days from March 29, 2026
   const launch = new Date('2026-04-28T00:00:00');
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
   function tick() {
-    const now = new Date();
-    const diff = launch - now;
-
+    const diff = launch - new Date();
     if (diff <= 0) {
-      document.getElementById('cd-days').textContent = '00';
-      document.getElementById('cd-hours').textContent = '00';
-      document.getElementById('cd-mins').textContent = '00';
-      document.getElementById('cd-secs').textContent = '00';
+      ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(function(id) {
+        document.getElementById(id).textContent = '00';
+      });
       return;
     }
-
-    const days  = Math.floor(diff / 86400000);
-    const hours = Math.floor((diff % 86400000) / 3600000);
-    const mins  = Math.floor((diff % 3600000)  / 60000);
-    const secs  = Math.floor((diff % 60000)    / 1000);
-
-    document.getElementById('cd-days').textContent  = pad(days);
-    document.getElementById('cd-hours').textContent = pad(hours);
-    document.getElementById('cd-mins').textContent  = pad(mins);
-    document.getElementById('cd-secs').textContent  = pad(secs);
+    document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 86400000));
+    document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 3600000) / 60000));
+    document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 60000) / 1000));
   }
 
   tick();
