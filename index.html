@@ -1,218 +1,369 @@
-  <!--Main Navigation-->
-  <header>
-    <!-- Intro settings -->
-    <style>
-      /* Default height for small devices */
-      #intro {
-        height: 600px;
-        /* Margin to fix overlapping fixed navbar */
-        margin-top: 58px;
-      }
-      @media (max-width: 991px) {
-              #intro {
-              /* Margin to fix overlapping fixed navbar */
-              margin-top: 45px;
-      	}
-      }
-    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zamendra – Farm to Table, Direct</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <div class="container-fluid">
-        <!-- Navbar brand -->
-        <a class="navbar-brand" target="_blank" href="https://mdbootstrap.com/docs/standard/">
-          <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="16" alt="" loading="lazy"
-            style="margin-top: -3px;" />
-        </a>
-        <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#navbarExample01"
-          aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarExample01">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" aria-current="page" href="#intro">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
-                target="_blank">Learn Bootstrap 5</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://mdbootstrap.com/docs/standard/" target="_blank">Download MDB UI KIT</a>
-            </li>
-          </ul>
+  :root {
+    --green-deep:   #1a3a2a;
+    --green-mid:    #2d6a4f;
+    --green-fresh:  #52b788;
+    --green-light:  #b7e4c7;
+    --earth:        #a47148;
+    --earth-light:  #ddb892;
+    --cream:        #f8f4ee;
+    --cream-dark:   #ede8df;
+    --text-dark:    #1a2e1e;
+    --text-mid:     #4a6741;
+  }
 
-          <ul class="navbar-nav d-flex flex-row">
-            <!-- Icons -->
-            <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link" href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow"
-                target="_blank">
-                <i class="fab fa-youtube"></i>
-              </a>
-            </li>
-            <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link" href="https://www.facebook.com/mdbootstrap" rel="nofollow" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-            </li>
-            <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link" href="https://twitter.com/MDBootstrap" rel="nofollow" target="_blank">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </li>
-            <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link" href="https://github.com/mdbootstrap/mdb-ui-kit" rel="nofollow" target="_blank">
-                <i class="fab fa-github"></i>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Navbar -->
+  html, body {
+    height: 100%;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
 
-    <!-- Background image -->
-    <div id="intro" class="p-5 text-center bg-image shadow-1-strong"
-      style="background-image: url('https://mdbootstrap.com/img/new/slides/205.jpg');">
-      <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
-        <div class="d-flex justify-content-center align-items-center h-100">
-          <div class="text-white px-4" data-mdb-theme="dark">
-            <h1 class="mb-3">Coming Soon!</h1>
+  /* ── background texture ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 10% 0%, rgba(82,183,136,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 90% 100%, rgba(164,113,72,0.14) 0%, transparent 55%),
+      radial-gradient(ellipse 40% 40% at 50% 50%, rgba(183,228,199,0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-            <!-- Time Counter -->
-            <h3 id="time-counter" class="border border-light my-4 p-4"></h3>
+  /* ── leaf decoration ── */
+  .leaf {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.07;
+  }
+  .leaf-1 { top: -60px; right: -40px; width: 340px; transform: rotate(20deg); }
+  .leaf-2 { bottom: -80px; left: -60px; width: 400px; transform: rotate(200deg); }
 
-            <p>We're working hard to finish the development of this site.</p>
+  /* ── wrapper ── */
+  .page {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+    gap: 0;
+  }
 
-            <p>Until then have a look at our Free Bootstrap 5 tutorials</p>
+  /* ── logo mark ── */
+  .logo-mark {
+    width: 64px;
+    height: 64px;
+    background: var(--green-mid);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    animation: fadeDown 0.8s ease both;
+    box-shadow: 0 8px 32px rgba(45,106,79,0.22);
+  }
+  .logo-mark svg { width: 34px; height: 34px; }
 
-            <a class="btn btn-outline-light btn-lg m-2" href="https://www.youtube.com/watch?v=c9B4TPnak1A" role="button" data-mdb-ripple-init
-              rel="nofollow" target="_blank">Start tutorial</a>
-            <a class="btn btn-outline-light btn-lg m-2" href="https://mdbootstrap.com/docs/standard/" target="_blank" data-mdb-ripple-init
-              role="button">Download MDB UI KIT</a>
-          </div>
-        </div>
-      </div>
+  /* ── tag line ── */
+  .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--green-fresh);
+    background: rgba(82,183,136,0.12);
+    border: 1px solid rgba(82,183,136,0.3);
+    border-radius: 100px;
+    padding: 5px 16px;
+    margin-bottom: 1.4rem;
+    animation: fadeDown 0.9s 0.1s ease both;
+  }
+
+  /* ── headline ── */
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 7vw, 5.2rem);
+    font-weight: 900;
+    line-height: 1.08;
+    text-align: center;
+    color: var(--green-deep);
+    max-width: 760px;
+    margin-bottom: 0.5rem;
+    animation: fadeDown 1s 0.2s ease both;
+  }
+  h1 span.accent {
+    color: var(--green-fresh);
+    font-style: italic;
+  }
+  h1 .dots {
+    color: var(--earth);
+  }
+
+  /* ── sub ── */
+  .sub {
+    font-size: clamp(1rem, 2.2vw, 1.15rem);
+    font-weight: 300;
+    color: var(--text-mid);
+    text-align: center;
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 2.8rem;
+    animation: fadeDown 1s 0.3s ease both;
+  }
+
+  /* ── countdown ── */
+  .countdown-wrap {
+    animation: fadeDown 1s 0.4s ease both;
+    margin-bottom: 2.8rem;
+  }
+  .countdown-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--earth);
+    text-align: center;
+    margin-bottom: 0.9rem;
+  }
+  .countdown {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+  .cd-block {
+    background: var(--green-deep);
+    border-radius: 14px;
+    padding: 16px 22px 14px;
+    min-width: 80px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(26,58,42,0.18);
+  }
+  .cd-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--green-light);
+    line-height: 1;
+    display: block;
+  }
+  .cd-unit {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--green-fresh);
+    margin-top: 5px;
+    display: block;
+  }
+  .cd-sep {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--green-mid);
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+
+  /* ── social links ── */
+  .social-wrap {
+    animation: fadeDown 1s 0.5s ease both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .social-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+  }
+  .socials {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .social-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 100px;
+    border: 1.5px solid var(--cream-dark);
+    background: rgba(255,255,255,0.7);
+    color: var(--green-deep);
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(6px);
+  }
+  .social-btn:hover {
+    border-color: var(--green-fresh);
+    background: rgba(82,183,136,0.1);
+    color: var(--green-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(82,183,136,0.2);
+  }
+  .social-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  /* ── footer ── */
+  .footer {
+    position: fixed;
+    bottom: 1.2rem;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 11px;
+    color: rgba(74,103,65,0.5);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── animations ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<!-- leaf SVG decorations -->
+<svg class="leaf leaf-1" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M150 20 C220 40, 280 120, 260 200 C240 280, 140 290, 80 240 C20 190, 10 80, 80 40 C110 22, 130 15, 150 20Z" fill="#2d6a4f"/>
+  <path d="M150 20 L200 180" stroke="#1a3a2a" stroke-width="4"/>
+  <path d="M200 180 C170 160, 140 140, 100 100" stroke="#1a3a2a" stroke-width="2"/>
+  <path d="M200 180 C175 165, 195 140, 210 120" stroke="#1a3a2a" stroke-width="2"/>
+</svg>
+<svg class="leaf leaf-2" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M150 20 C220 40, 280 120, 260 200 C240 280, 140 290, 80 240 C20 190, 10 80, 80 40 C110 22, 130 15, 150 20Z" fill="#a47148"/>
+  <path d="M150 20 L200 180" stroke="#7a5230" stroke-width="4"/>
+</svg>
+
+<div class="page">
+
+  <!-- logo mark -->
+  <div class="logo-mark">
+    <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17 4 C17 4, 8 10, 8 18 C8 24, 12 28, 17 28 C22 28, 26 24, 26 18 C26 10, 17 4, 17 4Z" fill="#b7e4c7"/>
+      <path d="M17 4 L17 28" stroke="#52b788" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M17 14 C14 12, 10 13, 9 16" stroke="#52b788" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M17 18 C20 16, 24 17, 25 20" stroke="#52b788" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- category tag -->
+  <div class="tag">Online Farmers Marketplace</div>
+
+  <!-- headline -->
+  <h1>Zamendra is <span class="accent">growing</span><br>stay tuned<span class="dots">.....</span></h1>
+
+  <!-- subtext -->
+  <p class="sub">Fresh produce, straight from farm to your door. We're building something special — connecting local farmers with families who care about where their food comes from.</p>
+
+  <!-- countdown -->
+  <div class="countdown-wrap">
+    <p class="countdown-label">Launching in</p>
+    <div class="countdown">
+      <div class="cd-block"><span class="cd-num" id="cd-days">30</span><span class="cd-unit">days</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-hours">00</span><span class="cd-unit">hours</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-mins">00</span><span class="cd-unit">mins</span></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-block"><span class="cd-num" id="cd-secs">00</span><span class="cd-unit">secs</span></div>
     </div>
-    <!-- Background image -->
-  </header>
-  <!--Main Navigation-->
+  </div>
 
-  <!--Main layout-->
-  <main class="mt-5">
-    <div class="container">
-      <!--Section: Content-->
-      <section>
-        <div class="row">
-          <div class="col-md-6 gx-5 mb-4 d-lg-flex align-items-center">
-            <div>
-              <h4><strong>Subscribe to stay up to date </strong></h4>
-              <p class="text-muted">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
-                eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
-                sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
-              </p>
-            </div>
-          </div>
+  <!-- social links -->
+  <div class="social-wrap">
+    <p class="social-label">Follow our journey</p>
+    <div class="socials">
 
-          <div class="col-md-6 gx-5 mb-4">
-            <form>
-              <!-- Name input -->
-              <div class="form-outline mb-4" data-mdb-input-init>
-                <input type="text" id="form5Example1" class="form-control" />
-                <label class="form-label" for="form5Example1">Name</label>
-              </div>
+      <a href="https://instagram.com/zamendra" target="_blank" class="social-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+        </svg>
+        @zamendra
+      </a>
 
-              <!-- Email input -->
-              <div class="form-outline mb-4" data-mdb-input-init>
-                <input type="email" id="form5Example2" class="form-control" />
-                <label class="form-label" for="form5Example2">Email address</label>
-              </div>
+      <a href="https://facebook.com/zamendra" target="_blank" class="social-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+        Zamendra
+      </a>
 
-              <!-- Submit button -->
-              <button type="submit" class="btn btn-primary btn-block mb-4" data-mdb-ripple-init>
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-      <!--Section: Content-->
+      <a href="mailto:hello@zamendra.com" class="social-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <polyline points="2,4 12,13 22,4"/>
+        </svg>
+        hello@zamendra.com
+      </a>
+
     </div>
-  </main>
-  <!--Main layout-->
+  </div>
 
-  <!--Footer-->
-  <footer class="bg-light text-lg-start">
-    <div class="py-4 text-center">
-      <a role="button" class="btn btn-primary btn-lg m-2" data-mdb-ripple-init
-        href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" rel="nofollow" target="_blank">
-        Learn Bootstrap 5
-      </a>
-      <a role="button" class="btn btn-primary btn-lg m-2" data-mdb-ripple-init href="https://mdbootstrap.com/docs/standard/" target="_blank">
-        Download MDB UI KIT
-      </a>
-    </div>
+</div>
 
-    <hr class="m-0" />
+<div class="footer">© 2026 Zamendra. All rights reserved.</div>
 
-    <div class="text-center py-4 align-items-center">
-      <p>Follow MDB on social media</p>
-      <a href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA" class="btn btn-primary m-1" role="button" data-mdb-ripple-init
-        rel="nofollow" target="_blank">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://www.facebook.com/mdbootstrap" class="btn btn-primary m-1" role="button" rel="nofollow" data-mdb-ripple-init
-        target="_blank">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://twitter.com/MDBootstrap" class="btn btn-primary m-1" role="button" rel="nofollow" data-mdb-ripple-init
-        target="_blank">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://github.com/mdbootstrap/mdb-ui-kit" class="btn btn-primary m-1" role="button" rel="nofollow" data-mdb-ripple-init
-        target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
+<script>
+  // Launch date: 30 days from March 29, 2026
+  const launch = new Date('2026-04-28T00:00:00');
 
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2020 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-  </footer>
-  <!--Footer-->
+  function pad(n) { return String(n).padStart(2, '0'); }
 
-    <!-- Time Counter -->
-    <script type="text/javascript">
-      // Set the date we're counting down to
-      var countDownDate = new Date();
-      countDownDate.setDate(countDownDate.getDate() + 30);
+  function tick() {
+    const now = new Date();
+    const diff = launch - now;
 
-      // Update the count down every 1 second
-      var x = setInterval(function () {
-        // Get todays date and time
-        var now = new Date().getTime();
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
 
-        // Find the distance between now an the count down date
-        var distance = countDownDate - now;
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000)  / 60000);
+    const secs  = Math.floor((diff % 60000)    / 1000);
 
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById('cd-days').textContent  = pad(days);
+    document.getElementById('cd-hours').textContent = pad(hours);
+    document.getElementById('cd-mins').textContent  = pad(mins);
+    document.getElementById('cd-secs').textContent  = pad(secs);
+  }
 
-        // Display the result in the element with id="demo"
-        document.getElementById('time-counter').innerHTML =
-          days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
-
-        // If the count down is finished, write some text
-        if (distance < 0) {
-          clearInterval(x);
-          document.getElementById('time-counter').innerHTML = 'EXPIRED';
-        }
-      }, 1000);
-    </script>
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
