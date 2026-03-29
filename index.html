@@ -1,0 +1,181 @@
+<!--Main Navigation-->
+<header>
+  <!-- Intro settings -->
+  <style>
+    /* Default height for small devices */
+    #intro {
+      height: 600px;
+      /* Margin to fix overlapping fixed navbar */
+      margin-top: 58px;
+    }
+    @media (max-width: 991px) {
+      #intro {
+        /* Margin to fix overlapping fixed navbar */
+        margin-top: 45px;
+      }
+    }
+  </style>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <div class="container-fluid">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="/">
+        <img src="assets/logo.png" height="24" alt="Zamendra logo" loading="lazy" style="margin-top: -3px;" />
+      </a>
+      <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="#intro">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#subscribe">Contact Us</a>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav d-flex flex-row">
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="#" rel="nofollow" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </li>
+          <li class="nav-item me-3 me-lg-0">
+            <a class="nav-link" href="#" rel="nofollow" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Background image -->
+  <div id="intro" class="p-5 text-center bg-image shadow-1-strong"
+    style="background-image: url('https://mdbootstrap.com/img/new/slides/205.jpg');">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.7);">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white px-4" data-mdb-theme="dark">
+          <h1 class="mb-3">Zamendra is growing, stay Tuned!</h1>
+
+          <!-- Time Counter -->
+          <h3 id="time-counter" class="border border-light my-4 p-4"></h3>
+
+          <p>Connecting Worcester and Central Massachusetts with fresh food from local farmers.</p>
+
+          <p>Support local farmers and discover fresh, seasonal produce through Zamendra.</p>
+
+          <a class="btn btn-outline-light btn-lg m-2" href="#subscribe" role="button" data-mdb-ripple-init>
+            Contact Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Background image -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main class="mt-5" id="subscribe">
+  <div class="container">
+    <!--Section: Content-->
+    <section>
+      <div class="row">
+        <div class="col-md-6 gx-5 mb-4 d-lg-flex align-items-center">
+          <div>
+            <h4><strong>Get updates from Zamendra</strong></h4>
+            <p class="text-muted">
+              Zamendra is an online marketplace connecting local farmers with consumers in Worcester and Central Massachusetts.
+              Join our email list to stay updated as we grow and bring fresh, local food closer to your table.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 gx-5 mb-4">
+          <form>
+            <!-- Email input -->
+            <div class="form-outline mb-4" data-mdb-input-init>
+              <input type="email" id="form5Example2" class="form-control" />
+              <label class="form-label" for="form5Example2">Email address</label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4" data-mdb-ripple-init>
+              Contact Us
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!--Section: Content-->
+  </div>
+</main>
+<!--Main layout-->
+
+<!--Footer-->
+<footer class="bg-light text-lg-start">
+  <div class="py-4 text-center">
+    <a role="button" class="btn btn-primary btn-lg m-2" data-mdb-ripple-init href="#" rel="nofollow" target="_blank">
+      Facebook
+    </a>
+    <a role="button" class="btn btn-primary btn-lg m-2" data-mdb-ripple-init href="#" rel="nofollow" target="_blank">
+      Instagram
+    </a>
+  </div>
+
+  <hr class="m-0" />
+
+  <div class="text-center py-4 align-items-center">
+    <p>Follow Zamendra on social media</p>
+    <a href="#" class="btn btn-primary m-1" role="button" data-mdb-ripple-init rel="nofollow" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="#" class="btn btn-primary m-1" role="button" data-mdb-ripple-init rel="nofollow" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2026 Zamendra
+  </div>
+  <!-- Copyright -->
+</footer>
+<!--Footer-->
+
+<!-- Time Counter -->
+<script type="text/javascript">
+  // Set the date we're counting down to
+  var countDownDate = new Date();
+  countDownDate.setMonth(countDownDate.getMonth() + 2);
+
+  // Update the count down every 1 second
+  var x = setInterval(function () {
+    // Get todays date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="demo"
+    document.getElementById('time-counter').innerHTML =
+      days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's ';
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById('time-counter').innerHTML = 'EXPIRED';
+    }
+  }, 1000);
+</script>
